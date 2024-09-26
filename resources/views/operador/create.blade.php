@@ -4,6 +4,7 @@
 
 @section('content_header')
     <h1 class="custom-header">Registro</h1>
+    
 @stop
 
 @section('content')
@@ -11,7 +12,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-8 col-xl-6"> <!-- Ajustar el ancho del contenedor -->
                 <div class="card">
-                <div class="card-header custom-card-header text-center d-flex justify-content-center align-items-center">
+                    <div class="card-header custom-card-header text-center d-flex justify-content-center align-items-center">
                         <h3 class="card-title font-weight-bold">Ingresar Datos</h3>
                     </div>
                     <div class="card-body">
@@ -19,8 +20,7 @@
                             @csrf
                             <div class="form-group">
                                 <label for="usuario">Usuario:</label>
-                                <input type="text" id="usuario" name="usuario" value="{{ $usuarioDeLaMaquina }}" class="form-control" readonly>
-                                <input type="hidden" name="usuario" value="{{ $usuarioDeLaMaquina }}">
+                                <input type="text" id="usuario" name="usuario" value="{{ $username }}" class="form-control" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="ci">CI:</label>
@@ -44,7 +44,6 @@
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
     <link rel="icon" href="{{ asset('images/logo2.png') }}" type="image/png"> <!-- Favicon -->
-    
     
     <style>
         /* Ocultar el sidebar y el navbar */
@@ -130,8 +129,9 @@
             text-align: center;
             border-radius: 10px;
         }
-/* Estilos para el footer */
-.footer {
+
+        /* Estilos para el footer */
+        .footer {
             position: fixed;
             bottom: 0;
             right: 0;

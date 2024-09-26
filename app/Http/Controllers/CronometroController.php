@@ -11,8 +11,11 @@ class CronometroController extends Controller
 {
     public function index()
     {
-        $usuarioDeLaMaquina = getenv('USERNAME');
-        $operador = Operador::where('usuario', $usuarioDeLaMaquina)->first();
+
+        $remoteUser = $_SERVER['REMOTE_USER']; // Ejemplo: DOMINIO\a.bazan
+        // Si necesitas extraer solo el nombre de usuario sin el dominio:
+        list($domain, $username) = explode('\\', $remoteUser);
+        $operador = Operador::where('usuario', $username)->first();
 
         // Obtén el registro de cronómetro en ejecución (si existe)
         $registro = RegistroTiempos::where('operador_id', $operador->id ?? 0)

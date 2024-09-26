@@ -12,15 +12,15 @@
 @section('content')
     <div class="content-container">
         <div class="card">
-            <div class="card-header text-center d-flex justify-content-center align-items-center">
-                <h3 class="card-title font-weight-bold">Inicio De Sesión</h3>
+            <div class="card-header text-center">
+                <h3 class="card-title">Inicio De Sesión</h3>
             </div>
             <div class="card-body">
                 <form method="POST" action="{{ route('check') }}">
                     @csrf
                     <div class="form-group">
                         <label for="usuario">Usuario:</label>
-                        <input type="text" id="usuario" name="usuario" value="{{ getenv('USERNAME') }}" class="form-control" readonly>
+                        <input type="text" id="usuario" name="usuario" value="{{ $username }}" class="form-control" readonly>
                     </div>
                     <div class="form-group text-center">
                         <button type="submit" name="action" value="ingresar" class="btn btn-primary">Ingresar</button>
@@ -41,68 +41,20 @@
         .main-sidebar, .main-header {
             display: none;
         }
-        
+
         /* Ajustar el contenido para que ocupe el espacio completo */
         .content-wrapper {
             margin-left: 0 !important;
         }
 
         /* Estilo para centrar el contenedor */
-        .vh-100 {
-            height: 100vh;
-        }
-
-        .d-flex {
-            display: flex;
-        }
-
-        .justify-content-center {
-            justify-content: center;
-        }
-
-        .align-items-center {
-            align-items: center;
-        }
-
-        /* Estilos del contenedor del encabezado */
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        /* Estilos personalizados para el encabezado */
-        .custom-header {
-            font-family: 'Roboto', sans-serif; /* Aplicando la fuente Roboto */
-            font-size: 1.25rem; /* Tamaño de la fuente ajustado */
-            font-weight: bold;
-            margin: 0;
-            flex-grow: 1;
-            text-align: center;
-            color: white;
-            background-color: #002855; /* Azul marino */
-            padding: 10px;
-            border-radius: 10px;
-        }
-
-        .logo-image {
-            height: 70px; /* Tamaño del logo ajustado */
-        }
-
-        /* Estilos del contenedor del contenido */
         .content-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: auto; /* Ajustar la altura automática para el contenedor */
+            height: 100vh; /* Asegurar que ocupe toda la altura */
             padding: 20px;
-            width: 100%;
-            max-width: 600px; /* Limitar el ancho máximo del contenedor */
             box-sizing: border-box;
-            margin: 0 auto; /* Centrar el contenedor */
         }
 
         .card {
@@ -130,45 +82,49 @@
         }
 
         .form-control {
-            display: block;
             width: 100%;
-            height: calc(1.5em + .75rem + 2px);
             padding: .375rem .75rem;
-            font-size: 1rem;
-            line-height: 1.5;
-            color: #495057;
-            background-color: #fff;
-            background-clip: padding-box;
             border: 1px solid #ced4da;
             border-radius: .375rem;
-            box-shadow: inset 0 0 0 rgba(0,0,0,.125);
         }
 
         .btn {
             display: inline-block;
             font-weight: 400;
             text-align: center;
-            vertical-align: middle;
-            user-select: none;
-            border: 1px solid transparent;
             border-radius: .375rem;
             padding: .375rem .75rem;
-            line-height: 1.5;
-            background-color: #007bff;
-            color: #fff;
-            text-decoration: none;
             cursor: pointer;
             margin: 5px;
-        }
-
-        .btn-success {
-            background-color: #28a745;
-            border-color: #28a745;
         }
 
         .btn-primary {
             background-color: #007bff;
             border-color: #007bff;
+            color: #fff;
+        }
+
+        /* Estilos del encabezado */
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .custom-header {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: white;
+            background-color: #002855; /* Azul marino */
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .logo-image {
+            height: 70px;
         }
 
         /* Estilos para el footer */
@@ -176,30 +132,30 @@
             position: fixed;
             bottom: 0;
             right: 0;
-            background-color: transparent; /* Fondo transparente */
+            background-color: transparent;
             color: silver;
             text-align: center;
             padding: 10px;
             font-family: 'Roboto', sans-serif;
-            font-size: 0.875rem; /* Tamaño de fuente menor para el footer */
+            font-size: 0.875rem;
             margin: 0;
             width: 100%;
             box-sizing: border-box;
         }
 
-        /* Media Queries para la adaptabilidad */
+        /* Media Queries */
         @media (max-width: 768px) {
             .custom-header {
-                font-size: 1rem; /* Ajustar el tamaño de la fuente en pantallas más pequeñas */
+                font-size: 1rem;
             }
 
             .logo-image {
-                height: 40px; /* Tamaño del logo ajustado para pantallas más pequeñas */
+                height: 40px;
             }
 
             .content-container {
                 padding: 10px;
-                max-width: 90%; /* Ajustar el ancho máximo en pantallas más pequeñas */
+                max-width: 90%;
             }
         }
     </style>
@@ -211,6 +167,6 @@
 
 @section('footer')
     <div class="footer">
-        <p>by> Jose Armando Guevara Caballero</p>
+        <p>by > Jose Armando Guevara Caballero</p>
     </div>
 @stop
